@@ -26,12 +26,16 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <div>
-        <img src={cronaImage} alt='Crona Image' className={styles.image}/>
-      </div>
-      <Cards data = {data}/>
-      <CountryPicker changeFunction={getSelectValue}/>
-      <Chart data = {data} updatedCountry={country}/>
+        <div>
+          <img src={cronaImage} alt='Crona Image' className={styles.image}/>
+        </div>
+        <Cards data = {data}/>
+        <CountryPicker changeFunction={getSelectValue}/>
+        <Chart data = {data} updatedCountry={country}/>
+
+        <div style={{display:'flex', justifyContent:'center',alignItems:'center',background:'white',width:'100%',marginTop:'50px'}}>
+                <h3>Created by :</h3> <h1 style={{marginLeft:'20px'}}>Zohaib Malik</h1>
+        </div>
 
     </div>
   );
