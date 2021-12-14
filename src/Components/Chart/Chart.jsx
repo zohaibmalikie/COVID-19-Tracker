@@ -2,11 +2,13 @@ import React, { useEffect, useState }  from 'react'
 import { fetchDailyData } from '../../api'
 import { Line, Bar } from 'react-chartjs-2'
 import styles from './Chart.module.css'
-
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
-const Charts = () => {
+
+
+
+const Charts = ({data, updatedCountry}) => {
     // Fetch Data start
     const [dailyData, setDailyData] = useState([])
     useEffect(() => {
@@ -43,9 +45,32 @@ const Charts = () => {
                     }} 
             />): null
     );
+
+    const barChart = (
+        data.confirmed
+        ?(
+            <Bar
+                data={{
+                    labels:['Infected', 'Recovered','Deaths'],
+                    datasets: [{
+                        label:"People",
+                        backgroundColor: ['rgb(80, 80, 252)', 'rgb(111, 248, 111)', 'rgb(250, 83, 83)'],
+                        data:[data.confirmed.value, data.recovered.value, data.deaths.value]
+                    }]
+                }}
+                options={{
+                    legend:{display:false},
+                    title:{display:true, text: `Current state in ${updatedCountry}`}
+                }}
+
+            />
+        ): null
+    )
+
     return (
         <div className={styles.container}>
-            {lineChart}  
+            
+            {updatedCountry == 'global' ? lineChart : barChart}  
         </div>
     )
 }

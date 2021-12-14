@@ -15,3 +15,10 @@
 .card:nth-child(3){
     border-bottom: 10px solid rgb(250, 83, 83) !important;
 }
+
+
+@media (max-width: 770px) {
+    .card{
+        margin: 2% 0% !important;
+    }
+}
