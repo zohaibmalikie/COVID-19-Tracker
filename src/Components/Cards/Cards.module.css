@@ -1,0 +1,17 @@
+.container{
+    margin: 50px 0px;
+}
+
+.card{
+    margin: 0 2% !important;
+}
+
+.card:nth-child(1){
+    border-bottom: 10px solid rgb(80, 80, 252) !important;
+}
+.card:nth-child(2){
+    border-bottom: 10px solid rgb(111, 248, 111) !important;
+}
+.card:nth-child(3){
+    border-bottom: 10px solid rgb(250, 83, 83) !important;
+}
